@@ -1,0 +1,67 @@
+.profile-feed {
+  width: 100%;
+  padding: 1% 2%;
+  margin-bottom: 15px;
+}
+.feed-head {
+  display: flex;
+}
+
+.author-feed-avatar {
+  margin: 0 0;
+  padding: 0 0;
+  border-radius: 50%;
+  background-image: url("../../../../../assets/images/avatar.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 40px;
+  width: 40px;
+}
+
+.author-feed-info {
+  flex-basis: 85%;
+}
+
+.author-feed-info * {
+  padding: 0 15px;
+  margin: 0 0;
+}
+
+.author-feed-info > p:first-child {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.author-feed-info > p:last-child {
+  font-size: 11px;
+  font-weight: bold;
+  color: #9a9fbf;
+}
+
+.feed-body {
+  padding: 10px 0;
+}
+
+.feed-more {
+  color: #9a9fbf;
+  justify-self: flex-end;
+}
+.feed-footer {
+  padding: 10px 0;
+}
+.feed-footer * {
+  color: #216a8f;
+  padding-right: 30px;
+}
+
+.feed-images {
+  display: flex;
+  flex-flow: wrap;
+}
+
+.feed-images * {
+  max-width: 100%;
+  min-height: 200px;
+  max-height: 400px;
+  padding: 5px 0;
+}

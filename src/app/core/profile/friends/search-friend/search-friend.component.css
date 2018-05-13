@@ -1,0 +1,15 @@
+.search-friends-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.count-of-friends-block, .search-friends-block * {
+  margin: 0 0;
+  padding: 0 0;
+}
+
+.count-of-friends-block, .search-friends-block {
+  margin: 15px;
+}

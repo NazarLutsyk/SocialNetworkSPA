@@ -1,0 +1,10 @@
+.profile-feed-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+}
+app-post{
+  min-width: 49%!important;
+  max-width: 49%!important;
+}

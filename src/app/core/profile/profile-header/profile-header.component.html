@@ -1,0 +1,17 @@
+<div class="profile-header profile-tile">
+  <div class="profile-header-thumb" [ngStyle]="{backgroundImage : 'url('+user?.thumb?.path+')'}"></div>
+  <div class="profile-header-menu">
+    <ul class="profile-header-menu-list">
+      <li routerLink="/profile/friends">Friends</li>
+      <li routerLink="/profile/wall">Wall</li>
+    </ul>
+    <div class="profile-header-info-menu">
+      <div class="profile-header-avatar" [ngStyle]="{backgroundImage : 'url('+user?.avatar?.path+')'}"></div>
+      <h4 routerLink="/profile/about">{{user?.name}} {{user?.surname}}</h4>
+    </div>
+    <ul class="profile-header-menu-list">
+      <li routerLink="/profile/gallery">Gallery</li>
+      <li routerLink="/profile/library">Library</li>
+    </ul>
+  </div>
+</div>
