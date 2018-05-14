@@ -1,0 +1,14 @@
+.profile-about-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 30px;
+  padding: 15px 30px;
+}
+app-info{
+  width: 49%!important;
+}
+app-info:nth-child(odd){
+  border-right: 3px solid #9a9fbf!important;
+}

@@ -1,8 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {ProfileService} from '../../../service/profile.service';
 import {User} from '../../../models/User';
 import {Image} from '../../../models/Image';
 import {ConfigService} from '../../../service/config.service';
+import {ObjectUtil} from '../../../utils/ObjectUtil';
+import {UserService} from '../../../service/user.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-profile-header',
@@ -14,14 +16,18 @@ export class ProfileHeaderComponent implements OnInit {
   user: User = new User();
 
   constructor(
-    private profileService: ProfileService,
-    private globalConfig: ConfigService
+    private globalConfig: ConfigService,
+    private userService: UserService,
+    private route: ActivatedRoute,
   ) {
   }
 
   ngOnInit() {
-    this.profileService.user$.subscribe((user) => {
-      this.user = {...user, ...this.user};
+    this.route.params.subscribe((params) => {
+      const id: string = params.id;
+      this.userService.find(id).subscribe((user) => {
+        ObjectUtil.copy(this.user, user);
+      });
     });
   }
 

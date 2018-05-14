@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {User} from '../../models/User';
 import {UserService} from '../../service/user.service';
-import {ProfileService} from '../../service/profile.service';
+import {ObjectUtil} from '../../utils/ObjectUtil';
 
 @Component({
   selector: 'app-profile',
@@ -11,23 +11,19 @@ import {ProfileService} from '../../service/profile.service';
 })
 export class ProfileComponent implements OnInit {
 
-  user: User = null;
+  user: User = new User();
 
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
-    private profileService: ProfileService
   ) {
   }
 
   ngOnInit() {
-    this.profileService.user$.subscribe(user => this.user = user);
-
     this.route.params.subscribe((params) => {
       const id: string = params.id;
       this.userService.find(id).subscribe((user) => {
-        this.user = user;
-        this.profileService.user$.next(this.user);
+        ObjectUtil.copy(this.user, user);
       });
     });
   }

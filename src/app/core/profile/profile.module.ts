@@ -8,8 +8,8 @@ import {LibraryModule} from './library/library.module';
 import {WallModule} from './wall/wall.module';
 import {AppRoutingModule} from '../../app-routing.module';
 import {FriendsModule} from './friends/friends.module';
-import { AboutComponent } from './about/about.component';
-import {ProfileService} from '../../service/profile.service';
+import {AboutComponent} from './about/about.component';
+import {InfoComponent} from './about/info/info.component';
 
 @NgModule({
   imports: [
@@ -22,7 +22,7 @@ import {ProfileService} from '../../service/profile.service';
     WallModule,
     AppRoutingModule
   ],
-  declarations: [ProfileComponent, AboutComponent],
-  providers: [ProfileService]
+  declarations: [ProfileComponent, AboutComponent, InfoComponent],
+  providers: []
 })
 export class ProfileModule { }

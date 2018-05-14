@@ -1,3 +1,9 @@
-<p>
-  about works!
-</p>
+<div class="profile-about-wrapper profile-tile">
+  <app-info [key]="'Name'" [value]="user.name"></app-info>
+  <app-info [key]="'Surname'" [value]="user.surname"></app-info>
+  <app-info [key]="'Birthday'" [value]="user.birthday | date"></app-info>
+  <app-info [key]="'City'" [value]="user.city"></app-info>
+  <app-info [key]="'Email'" [value]="user.email"></app-info>
+  <app-info [key]="'Phone'" [value]="user.phone"></app-info>
+</div>
+
