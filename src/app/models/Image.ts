@@ -5,7 +5,8 @@ export class Image extends Evaluetable {
 
   constructor(
     public path: string = '',
-    public author: Gallery = null
+    public author: string = '',
+    public authorObj: Gallery = null,
   ) {
     super();
   }

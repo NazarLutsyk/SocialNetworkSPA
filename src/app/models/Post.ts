@@ -7,9 +7,12 @@ export class Post extends Evaluetable{
 
   constructor(
     public text: string = '',
-    public author: Wall = null,
-    public images: Image[] = [],
-    public books: Book[] = [],
+    public author: string = '',
+    public authorObj: Wall = null,
+    public images: string[] = [],
+    public imagesObj: Image[] = [],
+    public books: string[] = [],
+    public booksObj: Book[] = [],
   ) {
     super();
   }

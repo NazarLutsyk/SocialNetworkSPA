@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {UserService} from '../../../service/user.service';
+import {User} from '../../../models/User';
+import {AuthService} from '../../../service/auth.service';
+import {init} from 'protractor/built/launcher';
 
 @Component({
   selector: 'app-friends',
@@ -7,7 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FriendsComponent implements OnInit {
 
-  constructor() { }
+  users: User[] = [];
+
+  constructor(
+    private userService: UserService,
+  ) {
+    this.userService.users.subscribe(users => {
+      this.users = users;
+    });
+  }
 
   ngOnInit() {
   }

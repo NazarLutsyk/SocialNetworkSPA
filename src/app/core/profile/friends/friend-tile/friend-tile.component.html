@@ -1,24 +1,26 @@
 <div class="friend-wrapper profile-tile">
-  <div class="friend-thumb"></div>
+  <div class="friend-thumb" [ngStyle]="{backgroundImage : 'url('+user?.thumbObj?.path+')'}"></div>
   <div class="friend-info-container">
-    <div class="friend-avatar"></div>
-    <div class="friend-name">Lucifer</div>
+    <div class="friend-avatar" [ngStyle]="{backgroundImage : 'url('+user?.avatarObj?.path+')'}"></div>
+    <div class="friend-name">{{user.surname}} {{user.name}}</div>
   </div>
   <div class="friend-links">
     <div class="friend-link">
-      <p>45</p>
+      <p>{{user.friendsCount}}</p>
       <span>Friends</span>
     </div>
     <div class="friend-link">
-      <p>77</p>
+      <p>{{user.imagesCount}}</p>
       <span>Images</span>
     </div>
     <div class="friend-link">
-      <p>78</p>
+      <p>{{user.booksCount}}</p>
       <span>Books</span>
     </div>
   </div>
   <div class="additional-friend-events">
     <i class="far fa-envelope"></i>
+    <i *ngIf="!user.isFriend" (click)="addFriend(user._id)" class="fas fa-user-plus"></i>
+    <i *ngIf="user.isFriend" (click)="removeFriend(user._id)" class="fas fa-user-times"></i>
   </div>
 </div>

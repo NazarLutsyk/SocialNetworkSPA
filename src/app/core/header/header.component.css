@@ -30,7 +30,7 @@ body {
   margin: 0 0;
 }
 
-.header-content > div {
+.header-content > form {
   display: flex;
   align-self: stretch;
   flex-basis: 65%;
@@ -42,10 +42,11 @@ body {
 .header-content input {
   border: none;
   padding-left: 15px;
-  font-size: 12px;
+  font-size: 20px;
   background: transparent;
   align-self: stretch;
   flex-basis: 95%;
+  color: #9a9fbf;
 }
 
 .page-title {

@@ -1,13 +1,12 @@
 import {Image} from './Image';
-import {ConfigService} from '../service/config.service';
 
 export class User {
 
-  public avatar: Image = null;
-  public thumb: Image = null;
+  public avatarObj: Image = null;
+  public thumbObj: Image = null;
 
   constructor(
-    public _id: string = '',
+    public _id: string = null,
     public name: string = '',
     public surname: string = '',
     public login: string = '',
@@ -15,14 +14,21 @@ export class User {
     public email: string = '',
     public phone: string = '',
     public city: string = '',
+    public imagesCount: number = 0,
+    public friendsCount: number = 0,
+    public booksCount: number = 0,
     public isBanned: boolean = false,
+    public isFriend: boolean = false,
     public birthday: Date = new Date(),
     public roles: string[] = [],
-    public friends: User[] = [],
-    avatar: Image = null,
-    thumb: Image = null,
+    public friends: string[] = [],
+    public avatar: string = '',
+    public thumb: string = '',
+    public friendsObj: User[] = [],
+    avatarObj: Image = null,
+    thumbObj: Image = null,
   ) {
-    this.avatar = avatar ? avatar : new Image(`http://localhost:3000/upload/images/default-avatar.jpg`);
-    this.thumb = thumb ? thumb : new Image(`http://localhost:3000/upload/images/default-thumb.jpg`);
+    this.avatarObj = avatarObj ? avatarObj : new Image(`http://localhost:3000/upload/images/default-avatar.jpg`);
+    this.thumbObj = thumbObj ? thumbObj : new Image(`http://localhost:3000/upload/images/default-thumb.jpg`);
   }
 }

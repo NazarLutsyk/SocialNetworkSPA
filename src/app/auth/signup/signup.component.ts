@@ -38,6 +38,8 @@ export class SignupComponent implements OnInit {
     this.user.surname = inputUser.surname;
     this.user.login = inputUser.login;
     this.user.password = inputUser.password;
+    this.user.avatar = null;
+    this.user.thumb = null;
 
     this.authService.signup(this.user).subscribe((user) => {
       this.router.navigate(['profile', user._id]);

@@ -4,6 +4,7 @@ export class Gallery {
 
   constructor(
     public _id: string = '',
-    public author: User = null
+    public author: string = '',
+    public authorObj: User = null
   ) {}
 }

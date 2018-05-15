@@ -5,7 +5,8 @@ export class Book extends Evaluetable {
 
   constructor(
     public path: string = '',
-    public author: Library = null
+    public author: string,
+    public authorObj: Library = null
   ) {
     super();
   }

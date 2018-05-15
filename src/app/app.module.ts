@@ -12,6 +12,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthInterceptorService} from './service/auth-interceptor.service';
 import {ConfigService} from './service/config.service';
 import {UserService} from './service/user.service';
+import {ImagesService} from './service/images.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {UserService} from './service/user.service';
       multi: true
     },
     ConfigService,
-    UserService
+    UserService,
+    ImagesService
   ],
   bootstrap: [AppComponent]
 })

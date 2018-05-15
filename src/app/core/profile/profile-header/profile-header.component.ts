@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../../../models/User';
-import {Image} from '../../../models/Image';
 import {ConfigService} from '../../../service/config.service';
 import {ObjectUtil} from '../../../utils/ObjectUtil';
 import {UserService} from '../../../service/user.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {AuthService} from '../../../service/auth.service';
 
 @Component({
   selector: 'app-profile-header',
@@ -19,6 +19,8 @@ export class ProfileHeaderComponent implements OnInit {
     private globalConfig: ConfigService,
     private userService: UserService,
     private route: ActivatedRoute,
+    private router: Router,
+    private auth: AuthService
   ) {
   }
 
@@ -31,4 +33,16 @@ export class ProfileHeaderComponent implements OnInit {
     });
   }
 
+  toFriends() {
+    this.route.params.subscribe((params) => {
+      const id: string = params.id;
+      const query = {
+        friends: id
+      };
+      this.userService.superfind(query).subscribe((users) => {
+        this.userService.users.next(users);
+      });
+      this.router.navigate(['profile', id, 'friends']);
+    });
+  }
 }

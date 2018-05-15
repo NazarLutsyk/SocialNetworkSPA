@@ -2,10 +2,15 @@
   <div class="header">
     <div class="header-content">
       <p class="page-title">MEDEIVAL WORK</p>
-      <div>
-        <input type="text" placeholder="Search here people...">
+      <form (ngSubmit)="findFriends(searchFriendForm)" #searchFriendForm="ngForm">
+        <input
+          type="text"
+          placeholder="Search here people..."
+          name="searchInput"
+          ngModel
+        >
         <i class="fas fa-search"></i>
-      </div>
+      </form>
       <p class="logout-btn" (click)="logout()">
         Logout
         <i class="fas fa-sign-out-alt"></i>
