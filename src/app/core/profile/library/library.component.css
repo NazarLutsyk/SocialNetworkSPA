@@ -5,14 +5,14 @@
   width: 100%;
 }
 
-.book-form-wrapper {
+.image-form-wrapper {
   display: flex;
   width: 100%;
   margin-bottom: 15px;
   flex-wrap: wrap;
   justify-content: center;
 }
-.book-form-wrapper p{
+.image-form-wrapper p{
   font-size: 35px;
   color: #18ad55;
   padding: 0 0;

@@ -1,8 +1,10 @@
 <div class="profile-gallery-image-container profile-tile">
-  <div class="profile-gallery-image-body"></div>
+  <div class="profile-gallery-image-body"
+       [ngStyle]="{backgroundImage : 'url(http://localhost:3000'+image?.path+')'}"></div>
   <div class="profile-gallery-image-feedback">
-    <i class="fas fa-heart">100</i>
-    <i class="far fa-heart">10</i>
-    <i class="fas fa-comments">15</i>
+    <!--<i class="fas fa-heart">100</i>-->
+    <!--<i class="far fa-heart">10</i>-->
+    <!--<i class="fas fa-comments">15</i>-->
+    <i class="fas fa-trash" (click)="removeImage()"></i>
   </div>
 </div>

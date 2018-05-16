@@ -1,5 +1,5 @@
 <div class="profile-library-wrapper">
-  <div class="profile-tile book-form-wrapper">
+  <div class="profile-tile image-form-wrapper" *ngIf="isPrincipalLibrary">
     <form (ngSubmit)="addBook(bookForm)" #bookForm = 'ngForm' enctype="multipart/form-data">
       <input
         type="file"

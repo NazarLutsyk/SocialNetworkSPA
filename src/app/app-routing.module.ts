@@ -24,8 +24,8 @@ const routes: Routes = [
       {path: 'gallery', component: GalleryComponent},
       {path: 'friends', component: FriendsComponent},
       {path: 'about', component: AboutComponent},
-    ]
-  }
+    ],
+  },
 ];
 
 @NgModule({

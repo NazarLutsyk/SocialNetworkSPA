@@ -1,10 +1,14 @@
 <div class="profile-gallery-wrapper">
-<app-image></app-image>
-<app-image></app-image>
-<app-image></app-image>
-<app-image></app-image>
-<app-image></app-image>
-<app-image></app-image>
-<app-image></app-image>
-<app-image></app-image>
+  <div class="profile-tile image-form-wrapper" *ngIf="isPrincipalGallery">
+    <form (ngSubmit)="addImage(imageForm)" #imageForm='ngForm' enctype="multipart/form-data">
+      <input
+        type="file"
+        name="file"
+        (change)="fileChangeEvent($event)"
+        ngModel
+      >
+      <button type="submit"><p><i class="far fa-plus-square"></i></p></button>
+    </form>
+  </div>
+  <app-image *ngFor="let image of images" [image]="image"></app-image>
 </div>

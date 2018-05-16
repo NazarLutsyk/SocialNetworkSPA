@@ -13,6 +13,7 @@ import {ActivatedRoute} from '@angular/router';
 export class LibraryComponent implements OnInit {
   private fileToUpload: File;
   books: Book[] = [];
+  isPrincipalLibrary = false;
 
   constructor(
     private bookService: BookService,
@@ -22,6 +23,11 @@ export class LibraryComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.route.parent.params.subscribe((params) => {
+      this.auth.getPrincipal().subscribe((principal) => {
+         this.isPrincipalLibrary = principal._id === params.id;
+      });
+    });
     this.route.queryParams.subscribe((params) => {
       if (params.query) {
         const query = JSON.parse(params.query);

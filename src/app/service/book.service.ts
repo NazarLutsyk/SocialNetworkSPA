@@ -22,7 +22,6 @@ export class BookService {
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'multipart/form-data');
     headers.append('Accept', 'application/json');
-    console.log(`${this.globalConfig.apiURL}/api/books`);
     return this.http.post<Book>(`${this.globalConfig.apiURL}/api/books`, formData, {headers: headers});
   }
 

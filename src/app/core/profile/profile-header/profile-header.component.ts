@@ -63,4 +63,15 @@ export class ProfileHeaderComponent implements OnInit {
         );
     });
   }
+
+  toGalleryPage() {
+    this.route.params.subscribe((params) => {
+      const id: string = params.id;
+      this.router
+        .navigate(
+          ['profile', id, 'gallery'],
+          {queryParams: {query: JSON.stringify({author: id})}}
+        );
+    });
+  }
 }

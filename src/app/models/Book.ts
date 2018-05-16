@@ -1,4 +1,3 @@
-import {Library} from './Library';
 import {Evaluetable} from './Evaluetable';
 
 export class Book extends Evaluetable {
@@ -9,7 +8,6 @@ export class Book extends Evaluetable {
     public path: string = '',
     public author: string,
     public isOwnBook: boolean = false,
-    public authorObj: Library = null
   ) {
     super();
   }

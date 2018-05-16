@@ -10,7 +10,7 @@
       <h4 (click)="toAboutPage()">{{current?.name}} {{current?.surname}}</h4>
     </div>
     <ul class="profile-header-menu-list">
-      <li [routerLink]="'/profile/'+current._id+'/gallery'">Gallery</li>
+      <li (click)="toGalleryPage()">Gallery</li>
       <li (click)="toLibraryPage()">Library</li>
     </ul>
   </div>
