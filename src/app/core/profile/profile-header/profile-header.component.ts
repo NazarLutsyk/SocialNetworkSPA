@@ -4,7 +4,6 @@ import {ConfigService} from '../../../service/config.service';
 import {ObjectUtil} from '../../../utils/ObjectUtil';
 import {UserService} from '../../../service/user.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {AuthService} from '../../../service/auth.service';
 
 @Component({
   selector: 'app-profile-header',
@@ -13,14 +12,13 @@ import {AuthService} from '../../../service/auth.service';
 })
 export class ProfileHeaderComponent implements OnInit {
 
-  user: User = new User();
+  current: User = new User();
 
   constructor(
     private globalConfig: ConfigService,
     private userService: UserService,
     private route: ActivatedRoute,
-    private router: Router,
-    private auth: AuthService
+    private router: Router
   ) {
   }
 
@@ -28,21 +26,41 @@ export class ProfileHeaderComponent implements OnInit {
     this.route.params.subscribe((params) => {
       const id: string = params.id;
       this.userService.find(id).subscribe((user) => {
-        ObjectUtil.copy(this.user, user);
+        ObjectUtil.copy(this.current, user);
       });
     });
   }
 
-  toFriends() {
+  toFriendsPage() {
     this.route.params.subscribe((params) => {
       const id: string = params.id;
-      const query = {
-        friends: id
-      };
-      this.userService.superfind(query).subscribe((users) => {
-        this.userService.users.next(users);
-      });
-      this.router.navigate(['profile', id, 'friends']);
+      this.router
+        .navigate(
+          ['profile', id, 'friends'],
+          {queryParams: {query: JSON.stringify({friends: id})}}
+        );
+    });
+  }
+
+  toLibraryPage() {
+    this.route.params.subscribe((params) => {
+      const id: string = params.id;
+      this.router
+        .navigate(
+          ['profile', id, 'library'],
+          {queryParams: {query: JSON.stringify({author: id})}}
+        );
+    });
+  }
+
+  toAboutPage() {
+    this.route.params.subscribe((params) => {
+      const id: string = params.id;
+      this.router
+        .navigate(
+          ['profile', id, 'about'],
+          {queryParams: {query: JSON.stringify({_id: id})}}
+        );
     });
   }
 }

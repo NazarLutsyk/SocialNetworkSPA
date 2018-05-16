@@ -1,17 +1,17 @@
 <div class="profile-header profile-tile">
-  <div class="profile-header-thumb" [ngStyle]="{backgroundImage : 'url('+user?.thumbObj?.path+')'}"></div>
+  <div class="profile-header-thumb" [ngStyle]="{backgroundImage : 'url('+current?.thumbObj?.path+')'}"></div>
   <div class="profile-header-menu">
     <ul class="profile-header-menu-list">
-      <li (click)="toFriends()">Friends</li>
-      <li [routerLink]="'/profile/'+user._id+'/wall'">Wall</li>
+      <li (click)="toFriendsPage()">Friends</li>
+      <li [routerLink]="'/profile/'+current._id+'/wall'">Wall</li>
     </ul>
     <div class="profile-header-info-menu">
-      <div class="profile-header-avatar" [ngStyle]="{backgroundImage : 'url('+user?.avatarObj?.path+')'}"></div>
-      <h4 [routerLink]="'/profile/'+user._id+'/about'">{{user?.name}} {{user?.surname}}</h4>
+      <div class="profile-header-avatar" [ngStyle]="{backgroundImage : 'url('+current?.avatarObj?.path+')'}"></div>
+      <h4 (click)="toAboutPage()">{{current?.name}} {{current?.surname}}</h4>
     </div>
     <ul class="profile-header-menu-list">
-      <li [routerLink]="'/profile/'+user._id+'/gallery'">Gallery</li>
-      <li [routerLink]="'/profile/'+user._id+'/library'">Library</li>
+      <li [routerLink]="'/profile/'+current._id+'/gallery'">Gallery</li>
+      <li (click)="toLibraryPage()">Library</li>
     </ul>
   </div>
 </div>

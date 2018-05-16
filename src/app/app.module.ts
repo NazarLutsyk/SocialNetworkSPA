@@ -13,6 +13,7 @@ import {AuthInterceptorService} from './service/auth-interceptor.service';
 import {ConfigService} from './service/config.service';
 import {UserService} from './service/user.service';
 import {ImagesService} from './service/images.service';
+import {BookService} from './service/book.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {ImagesService} from './service/images.service';
     },
     ConfigService,
     UserService,
-    ImagesService
+    ImagesService,
+    BookService
   ],
   bootstrap: [AppComponent]
 })

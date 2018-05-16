@@ -25,7 +25,10 @@ export class SigninComponent implements OnInit {
   signIn(ngForm: NgForm) {
     this.authService.signin(ngForm.form.value.login, ngForm.form.value.password)
       .subscribe((user) => {
-        this.router.navigate(['profile', user._id]);
+        this.router.navigate(
+          ['profile', user._id, 'about'],
+          {queryParams: {query: JSON.stringify({_id: user._id})}}
+        );
       });
   }
 

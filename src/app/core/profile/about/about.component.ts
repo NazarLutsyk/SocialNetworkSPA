@@ -11,7 +11,7 @@ import {ObjectUtil} from '../../../utils/ObjectUtil';
 })
 export class AboutComponent implements OnInit {
 
-  user: User = new User();
+  current: User = new User();
 
   constructor(
     private userService: UserService,
@@ -20,11 +20,13 @@ export class AboutComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.parent.params.subscribe((params) => {
-      const id: string = params.id;
-      this.userService.find(id).subscribe((user) => {
-        ObjectUtil.copy(this.user, user);
-      });
+    this.route.queryParams.subscribe((params) => {
+      if (params.query) {
+        const query = JSON.parse(params.query);
+        this.userService.superfind(query).subscribe((friends) => {
+          ObjectUtil.copy(this.current, friends[0]);
+        });
+      }
     });
   }
 

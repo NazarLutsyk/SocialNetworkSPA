@@ -42,7 +42,10 @@ export class SignupComponent implements OnInit {
     this.user.thumb = null;
 
     this.authService.signup(this.user).subscribe((user) => {
-      this.router.navigate(['profile', user._id]);
+      this.router.navigate(
+        ['profile', user._id, 'about'],
+        {queryParams: {query: JSON.stringify({_id: user._id})}}
+      );
     });
   }
 }

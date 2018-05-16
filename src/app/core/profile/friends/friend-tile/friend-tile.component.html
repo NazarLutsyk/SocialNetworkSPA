@@ -1,26 +1,26 @@
 <div class="friend-wrapper profile-tile">
-  <div class="friend-thumb" [ngStyle]="{backgroundImage : 'url('+user?.thumbObj?.path+')'}"></div>
+  <div class="friend-thumb" [ngStyle]="{backgroundImage : 'url('+current?.thumbObj?.path+')'}"></div>
   <div class="friend-info-container">
-    <div class="friend-avatar" [ngStyle]="{backgroundImage : 'url('+user?.avatarObj?.path+')'}"></div>
-    <div class="friend-name">{{user.surname}} {{user.name}}</div>
+    <div class="friend-avatar" [ngStyle]="{backgroundImage : 'url('+current?.avatarObj?.path+')'}"></div>
+    <div class="friend-name" [routerLink]="'/profile/'+current._id+'/friends'">{{current.surname}} {{current.name}}</div>
   </div>
   <div class="friend-links">
     <div class="friend-link">
-      <p>{{user.friendsCount}}</p>
+      <p>{{current.friendsCount}}</p>
       <span>Friends</span>
     </div>
     <div class="friend-link">
-      <p>{{user.imagesCount}}</p>
+      <p>{{current.imagesCount}}</p>
       <span>Images</span>
     </div>
     <div class="friend-link">
-      <p>{{user.booksCount}}</p>
+      <p>{{current.booksCount}}</p>
       <span>Books</span>
     </div>
   </div>
   <div class="additional-friend-events">
     <i class="far fa-envelope"></i>
-    <i *ngIf="!user.isFriend" (click)="addFriend(user._id)" class="fas fa-user-plus"></i>
-    <i *ngIf="user.isFriend" (click)="removeFriend(user._id)" class="fas fa-user-times"></i>
+    <i *ngIf="!current.isFriend" (click)="addFriend(current._id)" class="fas fa-user-plus"></i>
+    <i *ngIf="current.isFriend" (click)="removeFriend(current._id)" class="fas fa-user-times"></i>
   </div>
 </div>

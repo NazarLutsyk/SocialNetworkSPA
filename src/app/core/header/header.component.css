@@ -52,6 +52,7 @@ body {
 .page-title {
   flex-basis: 20%;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .logout-btn {

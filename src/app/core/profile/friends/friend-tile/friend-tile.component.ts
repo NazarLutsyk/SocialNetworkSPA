@@ -11,7 +11,7 @@ import {UserService} from '../../../../service/user.service';
 })
 export class FriendTileComponent implements OnInit {
 
-  @Input() user: User;
+  @Input() current: User;
 
   constructor(
     private authService: AuthService,
@@ -20,7 +20,7 @@ export class FriendTileComponent implements OnInit {
   }
 
   ngOnInit() {
-    ObjectUtil.copy(this.user, new User());
+    ObjectUtil.copy(this.current, new User());
   }
 
   addFriend(friend: string) {
@@ -32,8 +32,8 @@ export class FriendTileComponent implements OnInit {
         };
         this.userService.update(principal._id, toUpdate).subscribe((updated) => {
           this.userService.find(friend).subscribe((user) => {
-            this.user = new User();
-            ObjectUtil.copy(this.user, user);
+            this.current = new User();
+            ObjectUtil.copy(this.current, user);
           });
         });
       }
@@ -49,8 +49,8 @@ export class FriendTileComponent implements OnInit {
         };
         this.userService.update(principal._id, toUpdate).subscribe((updated) => {
           this.userService.find(friend).subscribe((user) => {
-            this.user = new User();
-            ObjectUtil.copy(this.user, user);
+            this.current = new User();
+            ObjectUtil.copy(this.current, user);
           });
         });
       }

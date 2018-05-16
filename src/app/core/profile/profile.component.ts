@@ -11,21 +11,11 @@ import {ObjectUtil} from '../../utils/ObjectUtil';
 })
 export class ProfileComponent implements OnInit {
 
-  user: User = new User();
-
   constructor(
-    private route: ActivatedRoute,
-    private userService: UserService,
   ) {
   }
 
   ngOnInit() {
-    this.route.params.subscribe((params) => {
-      const id: string = params.id;
-      this.userService.find(id).subscribe((user) => {
-        ObjectUtil.copy(this.user, user);
-      });
-    });
   }
 
 }

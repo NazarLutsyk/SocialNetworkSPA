@@ -7,9 +7,6 @@ import {Subject} from 'rxjs/Subject';
 
 @Injectable()
 export class UserService {
-
-  users: Subject<User[]> = new Subject<User[]>();
-
   constructor(
     private http: HttpClient,
     private configService: ConfigService

@@ -1,6 +1,9 @@
 <div class="profile-tile book">
-  <h5>Witcher 3</h5>
-  <h4>
+  <h4 *ngIf="book.isOwnBook" style="color: crimson" (click)="removeBook()">
+    <i class="fas fa-trash"></i>
+  </h4>
+  <h5>{{book.name}}</h5>
+  <h4 (click)="downloadBook()">
     <i class="far fa-arrow-alt-circle-down"></i>
   </h4>
 </div>

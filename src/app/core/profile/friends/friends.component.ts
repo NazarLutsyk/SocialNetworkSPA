@@ -3,6 +3,7 @@ import {UserService} from '../../../service/user.service';
 import {User} from '../../../models/User';
 import {AuthService} from '../../../service/auth.service';
 import {init} from 'protractor/built/launcher';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-friends',
@@ -11,17 +12,23 @@ import {init} from 'protractor/built/launcher';
 })
 export class FriendsComponent implements OnInit {
 
-  users: User[] = [];
+  friends: User[];
 
   constructor(
     private userService: UserService,
+    private router: Router,
+    private route: ActivatedRoute,
   ) {
-    this.userService.users.subscribe(users => {
-      this.users = users;
-    });
   }
 
   ngOnInit() {
+    this.route.queryParams.subscribe((params) => {
+      if (params.query) {
+        const query = JSON.parse(params.query);
+        this.userService.superfind(query).subscribe((friends) => {
+          this.friends = friends;
+        });
+      }
+    });
   }
-
 }

@@ -1,9 +1,11 @@
 <div class="search-friends-wrapper profile-tile">
-  <div class="count-of-friends-block">
-    <span>{{principal?.name}} {{principal?.surname}}`s friends({{principal?.friendsCount}})</span>
-  </div>
-  <div class="search-friends-block">
-    <input type="text" placeholder="Search friend">
+  <form class="search-friends-block" (ngSubmit)="searchFriends(searchFriens)" #searchFriens="ngForm">
+    <input
+      type="text"
+      placeholder="Search friend"
+      name="search"
+      ngModel
+    >
     <i class="fas fa-search"></i>
-  </div>
+  </form>
 </div>

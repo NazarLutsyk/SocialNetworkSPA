@@ -1,6 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {User} from '../../../../models/User';
 import {AuthService} from '../../../../service/auth.service';
+import {NgForm} from '@angular/forms';
+import {UserService} from '../../../../service/user.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {ObjectUtil} from '../../../../utils/ObjectUtil';
 
 @Component({
   selector: 'app-search-friend',
@@ -9,15 +13,33 @@ import {AuthService} from '../../../../service/auth.service';
 })
 export class SearchFriendComponent implements OnInit {
 
-  principal: User;
-
   constructor(
-    private auth: AuthService
+    private auth: AuthService,
+    private userService: UserService,
+    private router: Router,
+    private route: ActivatedRoute
   ) {
   }
 
   ngOnInit() {
-    this.auth.getPrincipal().subscribe(principal => this.principal = principal);
+  }
+
+  searchFriends(form: NgForm) {
+    this.route.parent.params.subscribe((params) => {
+      let searchInput = form.form.value.search;
+      searchInput = searchInput.split(' ');
+      searchInput[0] = searchInput[0] ? searchInput[0] : '';
+      searchInput[1] = searchInput[1] ? searchInput[1] : '';
+      const query = {
+        name: {$regex: searchInput[0], $options: 'i'},
+        surname: {$regex: searchInput[1], $options: 'i'},
+        friends: params.id
+      };
+      this.router.navigate(
+        ['profile', params.id, 'friends'],
+        {queryParams: {query: JSON.stringify(query)}}
+      );
+    });
   }
 
 }
