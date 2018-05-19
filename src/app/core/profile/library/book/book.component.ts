@@ -26,11 +26,10 @@ export class BookComponent implements OnInit {
   }
 
   downloadBook() {
-    this.bookService.download(this.book.path);
+    window.open(this.book.url);
   }
 
   removeBook() {
-    console.log('yeeeey');
     this.bookService.remove(this.book._id).subscribe(() => {
       this.deleteBook.emit(this.book);
     });

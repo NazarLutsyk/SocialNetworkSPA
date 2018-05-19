@@ -39,9 +39,19 @@ export class LibraryComponent implements OnInit {
   }
 
   addBook(form: NgForm) {
-    this.bookService.create(this.filesToUpload).subscribe((books) => {
-      this.books.push(...books);
-    });
+    if (form.form.value.file) {
+      this.bookService.createByFile(this.filesToUpload).subscribe((books) => {
+        this.books.push(...books);
+      });
+    } else if (form.form.value.url) {
+      for (const url of form.form.value.url.split(',')) {
+        if (url) {
+          this.bookService.createByUrl(url).subscribe((books) => {
+            this.books.push(...books);
+          });
+        }
+      }
+    }
   }
 
 

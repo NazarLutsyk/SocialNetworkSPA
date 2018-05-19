@@ -22,5 +22,5 @@
       <button type="submit"><p><i class="far fa-plus-square"></i></p></button>
     </form>
   </div>
-  <app-post *ngFor="let post of posts" [post]="post"></app-post>
+  <app-post *ngFor="let post of posts" [post]="post" (deletePost)="deletePost($event)"></app-post>
 </div>

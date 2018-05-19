@@ -1,8 +1,9 @@
 <div class="friend-wrapper profile-tile">
-  <div class="friend-thumb" [ngStyle]="{backgroundImage : 'url('+current?.thumbObj?.path+')'}"></div>
+  <div class="friend-thumb" [ngStyle]="{backgroundImage : 'url('+current?.thumb+')'}"></div>
   <div class="friend-info-container">
-    <div class="friend-avatar" [ngStyle]="{backgroundImage : 'url('+current?.avatarObj?.path+')'}"></div>
-    <div class="friend-name" [routerLink]="'/profile/'+current._id+'/friends'">{{current.surname}} {{current.name}}</div>
+    <div class="friend-avatar" [ngStyle]="{backgroundImage : 'url('+current?.avatar+')'}"></div>
+    <div class="friend-name" [routerLink]="'/profile/'+current._id+'/friends'">{{current.surname}} {{current.name}}
+    </div>
   </div>
   <div class="friend-links">
     <div class="friend-link">

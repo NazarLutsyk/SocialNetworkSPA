@@ -16,7 +16,7 @@ export class BookService {
   ) {
   }
 
-  create(books: File[]): Observable<Book[]> {
+  createByFile(books: File[]): Observable<Book[]> {
     const formData: FormData = new FormData();
     for (const book of books) {
       formData.append('books', book, book.name);
@@ -27,14 +27,13 @@ export class BookService {
     return this.http.post<Book[]>(`${this.globalConfig.apiURL}/api/books`, formData, {headers: headers});
   }
 
+  createByUrl(url: string): Observable<Book[]> {
+    return this.http.post<Book[]>(`${this.globalConfig.apiURL}/api/books`, {url});
+  }
+
   superfind(query): Observable<Book[]> {
     query = JSON.stringify(query);
     return this.http.get<Book[]>(`${this.globalConfig.apiURL}/api/books?query=${query}`);
-  }
-
-  download(path: string) {
-    path = `${this.globalConfig.apiURL}/upload/books/${path}`;
-    window.open(path);
   }
 
   remove(_id: string): Observable<any> {

@@ -38,10 +38,20 @@ export class GalleryComponent implements OnInit {
     });
   }
 
-  addImage(imageForm: any) {
-    this.imageService.create(this.filesToUpload).subscribe((images) => {
-      this.images.push(...images);
-    });
+  addImage(form: any) {
+    if (form.form.value.file) {
+      this.imageService.createByFile(this.filesToUpload).subscribe((images) => {
+        this.images.push(...images);
+      });
+    } else if (form.form.value.url) {
+      for (const url of form.form.value.url.split(',')) {
+        if (url) {
+          this.imageService.createByUrl(url).subscribe((images) => {
+            this.images.push(...images);
+          });
+        }
+      }
+    }
   }
 
   fileChangeEvent(event: any) {

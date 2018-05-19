@@ -10,11 +10,12 @@
     {{post.text}}
   </div>
   <div class="feed-images">
-    <img *ngFor="let image of post.images" [src]="apiUrl + image.path" alt="">
+    <img *ngFor="let image of post.images" [src]="image" alt="">
   </div>
-  <div>
-    <p *ngFor="let book of post.books">{{book.name}}</p>
+  <div *ngFor="let book of post.books">
+    <a [href]="book" target="_blank">{{book}}</a>
   </div>
-  <!--<div class="feed-footer">-->
-  <!--</div>-->
+</div>
+<div class="feed-footer">
+  <i class="fas fa-trash" style="color: crimson" (click)="removePost()"></i>
 </div>

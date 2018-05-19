@@ -1,9 +1,9 @@
 <div class="profile-gallery-image-container profile-tile">
-  <img [src]="'http://localhost:3000'+image?.path" alt="">
+  <img [src]="image.url" alt="">
   <div class="profile-gallery-image-feedback" *ngIf="image.isOwnImage">
-    <i class="fas fa-trash" (click)="removeImage()"></i>
+    <i class="fas fa-trash" (click)="removeImage()" style="color: crimson"></i>
     <i class="far fa-copy" (click)="copyUrl(url)">
-      <input #url [value]="globalConfig.apiURL + image.path"/>
+      <input #url [value]="image.url"/>
     </i>
   </div>
 </div>

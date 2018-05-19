@@ -16,8 +16,6 @@ export class ImageComponent implements OnInit {
 
   constructor(
     private imageService: ImagesService,
-    private route: ActivatedRoute,
-    private router: Router,
     public globalConfig: ConfigService
   ) {
   }

@@ -27,7 +27,7 @@ export class ImagesService {
 
   }
 
-  create(images: File[]): Observable<Image[]> {
+  createByFile(images: File[]): Observable<Image[]> {
     const formData: FormData = new FormData();
     for (const image of images) {
       formData.append('images', image, image.name);
@@ -36,7 +36,11 @@ export class ImagesService {
     headers.append('Content-Type', 'multipart/form-data');
     headers.append('Accept', 'application/json');
     return this.http.post<Image[]>(`${this.globalConfig.apiURL}/api/images`, formData, {headers: headers});
+  }
 
+
+  createByUrl(url: string): Observable<Image[]> {
+    return this.http.post<Image[]>(`${this.globalConfig.apiURL}/api/images`, {url});
   }
 
   remove(_id: string): Observable<any> {

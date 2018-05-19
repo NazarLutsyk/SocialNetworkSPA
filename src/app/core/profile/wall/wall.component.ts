@@ -31,8 +31,7 @@ export class WallComponent implements OnInit {
     this.route.queryParams.subscribe((params) => {
       if (params.query) {
         const query = JSON.parse(params.query);
-        const populate = ['images', 'books'];
-        this.postService.superfind(query, populate).subscribe((posts) => {
+        this.postService.superfind(query).subscribe((posts) => {
           this.posts = posts;
         });
       }
@@ -40,8 +39,15 @@ export class WallComponent implements OnInit {
   }
 
   createPost(form: NgForm) {
-    this.postService.create(form.form.value).subscribe((post) => {
+    const postVal = form.form.value;
+    postVal.images = postVal.images.split(',');
+    postVal.books = postVal.books.split(',');
+    this.postService.create(postVal).subscribe((post) => {
       this.posts.push(post);
     });
+  }
+
+  deletePost($event) {
+    this.posts.splice(this.posts.indexOf($event), 1);
   }
 }

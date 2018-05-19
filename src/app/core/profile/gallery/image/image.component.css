@@ -3,12 +3,16 @@
   margin-bottom: 1%;
 }
 
+.profile-gallery-image-feedback {
+  background: #e2e2e1;
+}
+
 .profile-gallery-image-feedback * {
   color: #216a8f;
   padding: 10px 15px;
   cursor: pointer;
 }
 
-img{
+img {
   max-width: 100%;
 }

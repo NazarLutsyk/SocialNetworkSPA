@@ -1,12 +1,12 @@
 <div class="profile-header profile-tile">
-  <div class="profile-header-thumb" [ngStyle]="{backgroundImage : 'url('+current?.thumbObj?.path+')'}"></div>
+  <div class="profile-header-thumb" [ngStyle]="{backgroundImage : 'url('+current?.thumb+')'}"></div>
   <div class="profile-header-menu">
     <ul class="profile-header-menu-list">
       <li (click)="toFriendsPage()">Friends</li>
       <li (click)="toWallPage()">Wall</li>
     </ul>
     <div class="profile-header-info-menu">
-      <div class="profile-header-avatar" [ngStyle]="{backgroundImage : 'url('+current?.avatarObj?.path+')'}"></div>
+      <div class="profile-header-avatar" [ngStyle]="{backgroundImage : 'url('+current?.avatar+')'}"></div>
       <h4 (click)="toAboutPage()">{{current?.name}} {{current?.surname}}</h4>
     </div>
     <ul class="profile-header-menu-list">

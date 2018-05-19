@@ -2,9 +2,6 @@ import {Image} from './Image';
 
 export class User {
 
-  public avatarObj: Image = null;
-  public thumbObj: Image = null;
-
   constructor(
     public _id: string = null,
     public name: string = '',
@@ -23,13 +20,9 @@ export class User {
     public birthday: Date = new Date(),
     public roles: string[] = [],
     public friends: string[] = [],
-    public avatar: string = 'http://localhost:3000/upload/images/default-avatar.jpg',
-    public thumb: string = 'http://localhost:3000/upload/images/default-thumb.jpg',
+    public avatar: string = '',
+    public thumb: string = '',
     public friendsObj: User[] = [],
-    avatarObj: Image = null,
-    thumbObj: Image = null,
   ) {
-    this.avatarObj = avatarObj ? avatarObj : new Image(`http://localhost:3000/upload/images/default-avatar.jpg`);
-    this.thumbObj = thumbObj ? thumbObj : new Image(`http://localhost:3000/upload/images/default-thumb.jpg`);
   }
 }
