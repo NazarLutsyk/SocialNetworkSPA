@@ -1,6 +1,6 @@
 <div class="profile-info-block">
-  <p>
-    <strong>{{key}}:</strong><br>
-    <span>{{value}}</span>
-  </p>
+  <div class="info-text">
+    <i *ngIf="canUpdate" class="fas fa-pen-square edit-btn" (click)="changeProp(key,span,$event)"></i> <strong>{{key}}:</strong><br>
+    <span #span>{{value}}</span>
+  </div>
 </div>

@@ -8,6 +8,7 @@ export class Post extends Evaluetable{
     public text: string = '',
     public author: string = '',
     public images: string[] = [],
+    public createdAt: string = '',
     public imagesObj: Image[] = [],
     public books: string[] = [],
     public booksObj: Book[] = [],

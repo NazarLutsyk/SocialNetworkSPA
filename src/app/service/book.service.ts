@@ -16,13 +16,15 @@ export class BookService {
   ) {
   }
 
-  create(book: File): Observable<Book> {
+  create(books: File[]): Observable<Book[]> {
     const formData: FormData = new FormData();
-    formData.append('books', book, book.name);
+    for (const book of books) {
+      formData.append('books', book, book.name);
+    }
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'multipart/form-data');
     headers.append('Accept', 'application/json');
-    return this.http.post<Book>(`${this.globalConfig.apiURL}/api/books`, formData, {headers: headers});
+    return this.http.post<Book[]>(`${this.globalConfig.apiURL}/api/books`, formData, {headers: headers});
   }
 
   superfind(query): Observable<Book[]> {

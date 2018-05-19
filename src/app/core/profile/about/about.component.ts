@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit} from '@angular/core';
 import {User} from '../../../models/User';
 import {UserService} from '../../../service/user.service';
 import {ActivatedRoute} from '@angular/router';
@@ -30,4 +30,10 @@ export class AboutComponent implements OnInit {
     });
   }
 
+  updateUser(event) {
+    this.userService.update(this.current._id, event).subscribe((user) => {
+      ObjectUtil.copy(this.current, user);
+      this.userService.updateUser.next(this.current);
+    });
+  }
 }

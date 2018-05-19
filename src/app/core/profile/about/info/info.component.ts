@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-info',
@@ -9,6 +9,8 @@ export class InfoComponent implements OnInit {
 
   @Input() key = '';
   @Input() value = '';
+  @Input() canUpdate = false;
+  @Output() changeValue = new EventEmitter();
 
   constructor() {
   }
@@ -16,4 +18,15 @@ export class InfoComponent implements OnInit {
   ngOnInit() {
   }
 
+  changeProp(key: string, span: HTMLSpanElement, $event) {
+    const input = document.createElement('input');
+    input.value = span.innerText;
+    span.parentNode.replaceChild(input, span);
+    input.focus();
+    input.onblur = (event) => {
+      span.innerText = input.value;
+      input.parentNode.replaceChild(span, input);
+      this.changeValue.emit({[key.toLowerCase()]: input.value});
+    };
+  }
 }

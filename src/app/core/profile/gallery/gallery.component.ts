@@ -12,7 +12,7 @@ import {ImagesService} from '../../../service/images.service';
 export class GalleryComponent implements OnInit {
 
   isPrincipalGallery = false;
-  private fileToUpload: File;
+  private filesToUpload: File[];
   images: Image[] = [];
 
   constructor(
@@ -39,12 +39,16 @@ export class GalleryComponent implements OnInit {
   }
 
   addImage(imageForm: any) {
-    this.imageService.create(this.fileToUpload).subscribe((image) => {
-      this.images.push(image[0]);
+    this.imageService.create(this.filesToUpload).subscribe((images) => {
+      this.images.push(...images);
     });
   }
 
   fileChangeEvent(event: any) {
-    this.fileToUpload = (<any>event.target).files[0];
+    this.filesToUpload = (<any>event.target).files;
+  }
+
+  deleteImage($event) {
+    this.images.splice(this.images.indexOf($event), 1);
   }
 }

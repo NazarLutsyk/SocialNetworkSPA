@@ -1,10 +1,9 @@
 <div class="profile-gallery-image-container profile-tile">
-  <div class="profile-gallery-image-body"
-       [ngStyle]="{backgroundImage : 'url(http://localhost:3000'+image?.path+')'}"></div>
-  <div class="profile-gallery-image-feedback">
-    <!--<i class="fas fa-heart">100</i>-->
-    <!--<i class="far fa-heart">10</i>-->
-    <!--<i class="fas fa-comments">15</i>-->
+  <img [src]="'http://localhost:3000'+image?.path" alt="">
+  <div class="profile-gallery-image-feedback" *ngIf="image.isOwnImage">
     <i class="fas fa-trash" (click)="removeImage()"></i>
+    <i class="far fa-copy" (click)="copyUrl(url)">
+      <input #url [value]="globalConfig.apiURL + image.path"/>
+    </i>
   </div>
 </div>

@@ -1,7 +1,12 @@
 .profile-info-block {
-  text-align: center;
   margin: 10px;
+  min-height: 50px;
 }
-.profile-info-block p{
+.info-text{
   margin-left: 15px;
+}
+.edit-btn{
+  padding: 0 5px;
+  color: #216a8f;
+  cursor: pointer;
 }

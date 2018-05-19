@@ -27,13 +27,15 @@ export class ImagesService {
 
   }
 
-  create(image: File): Observable<Image> {
+  create(images: File[]): Observable<Image[]> {
     const formData: FormData = new FormData();
-    formData.append('images', image, image.name);
+    for (const image of images) {
+      formData.append('images', image, image.name);
+    }
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'multipart/form-data');
     headers.append('Accept', 'application/json');
-    return this.http.post<Book>(`${this.globalConfig.apiURL}/api/images`, formData, {headers: headers});
+    return this.http.post<Image[]>(`${this.globalConfig.apiURL}/api/images`, formData, {headers: headers});
 
   }
 

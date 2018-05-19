@@ -1,8 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Book} from '../../../../models/Book';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Image} from '../../../../models/Image';
 import {ImagesService} from '../../../../service/images.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {ConfigService} from '../../../../service/config.service';
 
 @Component({
   selector: 'app-image',
@@ -12,27 +12,28 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class ImageComponent implements OnInit {
 
   @Input() image: Image;
+  @Output() deleteImage = new EventEmitter();
 
   constructor(
     private imageService: ImagesService,
     private route: ActivatedRoute,
-    private router: Router
-  ) { }
+    private router: Router,
+    public globalConfig: ConfigService
+  ) {
+  }
 
   ngOnInit() {
   }
 
   removeImage() {
     this.imageService.remove(this.image._id).subscribe(() => {
-      this.route.parent.params.subscribe((params) => {
-        this.router.navigate(
-          ['profile', params.id, 'gallery'],
-          {
-            queryParams: {query: JSON.stringify({author: params.id})},
-          }
-        );
-      });
+      this.deleteImage.emit(this.image);
     });
   }
 
+  copyUrl(urlSpan) {
+    const url = urlSpan;
+    url.select();
+    document.execCommand('copy');
+  }
 }

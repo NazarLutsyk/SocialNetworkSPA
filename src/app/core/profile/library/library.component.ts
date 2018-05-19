@@ -11,7 +11,7 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./library.component.css', '../profile.component.css']
 })
 export class LibraryComponent implements OnInit {
-  private fileToUpload: File;
+  private filesToUpload: File[];
   books: Book[] = [];
   isPrincipalLibrary = false;
 
@@ -25,7 +25,7 @@ export class LibraryComponent implements OnInit {
   ngOnInit() {
     this.route.parent.params.subscribe((params) => {
       this.auth.getPrincipal().subscribe((principal) => {
-         this.isPrincipalLibrary = principal._id === params.id;
+        this.isPrincipalLibrary = principal._id === params.id;
       });
     });
     this.route.queryParams.subscribe((params) => {
@@ -39,13 +39,17 @@ export class LibraryComponent implements OnInit {
   }
 
   addBook(form: NgForm) {
-    this.bookService.create(this.fileToUpload).subscribe((book) => {
-      this.books.push(book[0]);
+    this.bookService.create(this.filesToUpload).subscribe((books) => {
+      this.books.push(...books);
     });
   }
 
 
   fileChangeEvent($event) {
-    this.fileToUpload = (<any>event.target).files[0];
+    this.filesToUpload = (<any>event.target).files;
+  }
+
+  deleteBook($event) {
+    this.books.splice(this.books.indexOf($event), 1);
   }
 }

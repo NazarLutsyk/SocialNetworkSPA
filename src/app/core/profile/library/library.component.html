@@ -5,10 +5,11 @@
         type="file"
         name="file"
         (change)="fileChangeEvent($event)"
+        multiple="true"
         ngModel
       >
       <button type="submit"><p><i class="far fa-plus-square"></i></p></button>
     </form>
   </div>
-  <app-book *ngFor="let book of books" [book]="book"></app-book>
+  <app-book *ngFor="let book of books" [book]="book" (deleteBook)="deleteBook($event)"></app-book>
 </div>

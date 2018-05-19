@@ -1,9 +1,11 @@
 <div class="profile-about-wrapper profile-tile">
-  <app-info [key]="'Name'" [value]="current.name"></app-info>
-  <app-info [key]="'Surname'" [value]="current.surname"></app-info>
-  <app-info [key]="'Birthday'" [value]="current.birthday | date"></app-info>
-  <app-info [key]="'City'" [value]="current.city"></app-info>
-  <app-info [key]="'Email'" [value]="current.email"></app-info>
-  <app-info [key]="'Phone'" [value]="current.phone"></app-info>
+  <app-info [canUpdate]='current.isPrincipal' (changeValue)="updateUser($event)" [key]="'Name'" [value]="current.name"></app-info>
+  <app-info [canUpdate]='current.isPrincipal' (changeValue)="updateUser($event)" [key]="'Surname'" [value]="current.surname"></app-info>
+  <app-info [canUpdate]='current.isPrincipal' (changeValue)="updateUser($event)" [key]="'Birthday'" [value]="current.birthday | date"></app-info>
+  <app-info [canUpdate]='current.isPrincipal' (changeValue)="updateUser($event)" [key]="'City'" [value]="current.city"></app-info>
+  <app-info [canUpdate]='current.isPrincipal' (changeValue)="updateUser($event)" [key]="'Email'" [value]="current.email"></app-info>
+  <app-info [canUpdate]='current.isPrincipal' (changeValue)="updateUser($event)" [key]="'Phone'" [value]="current.phone"></app-info>
+  <app-info [canUpdate]='current.isPrincipal' (changeValue)="updateUser($event)" [key]="'Avatar'" [value]="current.avatar"></app-info>
+  <app-info [canUpdate]='current.isPrincipal' (changeValue)="updateUser($event)" [key]="'Thumb'" [value]="current.thumb"></app-info>
 </div>
 

@@ -3,7 +3,7 @@
   <div class="profile-header-menu">
     <ul class="profile-header-menu-list">
       <li (click)="toFriendsPage()">Friends</li>
-      <li [routerLink]="'/profile/'+current._id+'/wall'">Wall</li>
+      <li (click)="toWallPage()">Wall</li>
     </ul>
     <div class="profile-header-info-menu">
       <div class="profile-header-avatar" [ngStyle]="{backgroundImage : 'url('+current?.avatarObj?.path+')'}"></div>

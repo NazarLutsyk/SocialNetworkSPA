@@ -7,6 +7,8 @@ import {Subject} from 'rxjs/Subject';
 
 @Injectable()
 export class UserService {
+  updateUser = new Subject<User>();
+
   constructor(
     private http: HttpClient,
     private configService: ConfigService

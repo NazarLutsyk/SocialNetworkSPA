@@ -1,26 +1,20 @@
 <div class="profile-feed profile-tile">
   <div class="feed-head">
-    <div class="author-feed-avatar"></div>
+    <div class="author-feed-avatar" [ngStyle]="{backgroundImage : 'url('+author?.avatar+')'}"></div>
     <div class="author-feed-info">
-      <p>Blind Guardian</p>
-      <p>2018/05/28 12:00</p>
-    </div>
-    <div class="feed-more">
-      <i class="fas fa-ellipsis-h"></i>
+      <p>{{author?.name}} {{author.surname}}</p>
+      <p>{{post.createdAt | date}}</p>
     </div>
   </div>
   <div class="feed-body">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, ad dolorum eum id impedit minus nisi porro
-    vero. Ducimus nihil repellendus suscipit voluptatum? Consequuntur, perspiciatis quam. Amet magnam
-    mollitia vel.
+    {{post.text}}
   </div>
   <div class="feed-images">
-    <img src="../../../../../assets/images/city.jpg" alt="">
-    <img src="../../../../../assets/images/city.jpg" alt="">
+    <img *ngFor="let image of post.images" [src]="apiUrl + image.path" alt="">
   </div>
-  <div class="feed-footer">
-    <i class="fas fa-heart">100</i>
-    <i class="far fa-heart">10</i>
-    <i class="fas fa-comments">15</i>
+  <div>
+    <p *ngFor="let book of post.books">{{book.name}}</p>
   </div>
+  <!--<div class="feed-footer">-->
+  <!--</div>-->
 </div>

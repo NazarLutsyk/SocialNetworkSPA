@@ -1,14 +1,6 @@
 .profile-gallery-image-container {
   width: 100%;
-  margin-bottom: 5%;
-}
-
-.profile-gallery-image-body {
-  background-image: url("../../../../../assets/images/city.jpg");
-  background-size: cover;
-  background-position: center;
-  max-height: 300px;
-  min-height: 300px;
+  margin-bottom: 1%;
 }
 
 .profile-gallery-image-feedback * {
@@ -17,3 +9,6 @@
   cursor: pointer;
 }
 
+img{
+  max-width: 100%;
+}
