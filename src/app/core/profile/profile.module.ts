@@ -10,6 +10,7 @@ import {AppRoutingModule} from '../../app-routing.module';
 import {FriendsModule} from './friends/friends.module';
 import {AboutComponent} from './about/about.component';
 import {InfoComponent} from './about/info/info.component';
+import {ChatsModule} from './chats/chats.module';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import {InfoComponent} from './about/info/info.component';
     LibraryModule,
     FriendsModule,
     WallModule,
+    ChatsModule,
     AppRoutingModule
   ],
   declarations: [ProfileComponent, AboutComponent, InfoComponent],

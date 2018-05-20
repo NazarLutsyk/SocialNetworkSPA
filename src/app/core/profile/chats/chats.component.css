@@ -1,0 +1,29 @@
+.profile-chats {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.profile-chats > .chats, .messages {
+  border: 1px solid #e6ecf5;
+}
+
+.chats {
+  width: 30%;
+}
+
+.messages {
+  width: 70%;
+}
+
+.open-chat-header {
+  padding: 15px;
+  font-weight: bold;
+}
+.open-chat-input * {
+  width: 100%;
+  border: none;
+  border-top: 1px solid #e6ecf5;
+  padding: 10px;
+}

@@ -89,4 +89,16 @@ export class ProfileHeaderComponent implements OnInit {
         );
     });
   }
+
+  toChatsPage() {
+    // todo normal redirect to cgats page
+    this.route.params.subscribe((params) => {
+      const id: string = params.id;
+      this.router
+        .navigate(
+          ['profile', id, 'chats'],
+          // {queryParams: {query: JSON.stringify({author: id})}}
+        );
+    });
+  }
 }

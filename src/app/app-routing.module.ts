@@ -9,6 +9,7 @@ import {LibraryComponent} from './core/profile/library/library.component';
 import {GalleryComponent} from './core/profile/gallery/gallery.component';
 import {FriendsComponent} from './core/profile/friends/friends.component';
 import {AboutComponent} from './core/profile/about/about.component';
+import {ChatsComponent} from './core/profile/chats/chats.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,7 @@ const routes: Routes = [
       {path: 'gallery', component: GalleryComponent},
       {path: 'friends', component: FriendsComponent},
       {path: 'about', component: AboutComponent},
+      {path: 'chats', component: ChatsComponent},
     ],
   },
 ];
