@@ -20,7 +20,7 @@
     </div>
   </div>
   <div class="additional-friend-events">
-    <i class="far fa-envelope"></i>
+    <i class="far fa-envelope" (click)="addChat(current)"></i>
     <i *ngIf="!current.isFriend" (click)="addFriend(current._id)" class="fas fa-user-plus"></i>
     <i *ngIf="current.isFriend" (click)="removeFriend(current._id)" class="fas fa-user-times"></i>
   </div>

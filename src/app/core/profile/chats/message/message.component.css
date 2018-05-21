@@ -5,7 +5,6 @@
 }
 .message-avatar {
   border-radius: 50%;
-  background-image: url("../../../../../assets/images/avatar.jpg");
   background-position: center;
   background-size: cover;
   height: 40px;
@@ -20,7 +19,7 @@
 }
 .message-header *{
   padding: 0 0;
-  margin: 0 0;
+  margin: 5px 0 0;
   font-weight: bold;
   color: #666666;
   font-size: 12px;
@@ -33,4 +32,8 @@
 
 .message-body {
   padding: 10px 10px;
+}
+
+.text-wrap{
+  width: 100%;
 }

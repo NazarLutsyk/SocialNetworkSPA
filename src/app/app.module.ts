@@ -15,6 +15,9 @@ import {UserService} from './service/user.service';
 import {ImagesService} from './service/images.service';
 import {BookService} from './service/book.service';
 import {PostService} from './service/post.service';
+import {SocketService} from './service/socket.service';
+import {ChatService} from './service/chat.service';
+import {MessageService} from './service/message.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import {PostService} from './service/post.service';
     UserService,
     ImagesService,
     BookService,
-    PostService
+    PostService,
+    SocketService,
+    ChatService,
+    MessageService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Chat} from '../../../../models/Chat';
+import {MessageService} from '../../../../service/message.service';
+import {AuthService} from '../../../../service/auth.service';
+import {UserService} from '../../../../service/user.service';
+import {Message} from '../../../../models/Message';
 
 @Component({
   selector: 'app-room',
@@ -7,9 +12,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RoomComponent implements OnInit {
 
-  constructor() { }
+  @Input() chat: Chat;
+  chatAvatar = '';
+
+  constructor(
+    private messageService: MessageService,
+    private userService: UserService,
+  ) {
+  }
 
   ngOnInit() {
+    this.userService
+      .find(this.chat.members[0])
+      .subscribe(user => this.chatAvatar = user.avatar);
   }
 
 }

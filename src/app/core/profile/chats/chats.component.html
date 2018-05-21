@@ -1,20 +1,21 @@
 <div class="profile-chats profile-tile">
   <div class="chats">
-    <app-room></app-room>
-    <app-room></app-room>
-    <app-room></app-room>
+    <app-room *ngFor="let chat of chats" [chat]="chat" (click)="openChat(chat)"></app-room>
   </div>
   <div class="messages">
     <div class="open-chat-header">
-      <span>Jared Dines</span>
+      <span>{{openedChat.name}}</span>
     </div>
     <div class="open-chat-messages">
-      <app-message></app-message>
-      <app-message></app-message>
-      <app-message></app-message>
+      <app-message *ngFor="let message of messagesToShow" [message]="message"></app-message>
     </div>
-    <div class="open-chat-input">
-      <input type="text" placeholder="Write here your message...">
-    </div>
+    <form (ngSubmit)="sendMessage(messageForm)" #messageForm="ngForm" class="open-chat-input">
+      <input
+        type="text"
+        placeholder="Write here your message..."
+        name="message"
+        ngModel
+      >
+    </form>
   </div>
 </div>

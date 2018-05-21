@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {User} from '../../../../models/User';
 import {ObjectUtil} from '../../../../utils/ObjectUtil';
 import {AuthService} from '../../../../service/auth.service';
@@ -12,6 +12,7 @@ import {UserService} from '../../../../service/user.service';
 export class FriendTileComponent implements OnInit {
 
   @Input() current: User;
+  @Output() createChat = new EventEmitter();
 
   constructor(
     private authService: AuthService,
@@ -55,5 +56,9 @@ export class FriendTileComponent implements OnInit {
         });
       }
     });
+  }
+
+  addChat(current: User) {
+    this.createChat.emit(current);
   }
 }

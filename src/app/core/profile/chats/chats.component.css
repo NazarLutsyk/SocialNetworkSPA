@@ -11,6 +11,8 @@
 
 .chats {
   width: 30%;
+  overflow-y: scroll;
+  height: 100vh;
 }
 
 .messages {
@@ -26,4 +28,11 @@
   border: none;
   border-top: 1px solid #e6ecf5;
   padding: 10px;
+}
+.open-chat-messages{
+  overflow-y: scroll;
+  height: 85vh;
+}
+app-room{
+  cursor: pointer;
 }
