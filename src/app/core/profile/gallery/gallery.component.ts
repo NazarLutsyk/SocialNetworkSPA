@@ -39,6 +39,7 @@ export class GalleryComponent implements OnInit {
   }
 
   addImage(form: any) {
+    console.log(this.filesToUpload);
     if (form.form.value.file) {
       this.imageService.createByFile(this.filesToUpload).subscribe((images) => {
         this.images.push(...images);

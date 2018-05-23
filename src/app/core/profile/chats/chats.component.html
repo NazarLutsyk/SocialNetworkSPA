@@ -2,15 +2,21 @@
   <div class="chats">
     <app-room *ngFor="let chat of chats" [chat]="chat" (click)="openChat(chat)"></app-room>
   </div>
-  <div class="messages">
+  <div class="messages" *ngIf="openedChat">
     <div class="open-chat-header">
-      <span>{{openedChat.name}}</span>
+      <span>{{openedChat?.name}}</span>
+      <div>
+        <input type="text" placeholder="User ID" class="user-id-input" required #input>
+        <i class="fas fa-user-plus" (click)="addMember(input)"></i>
+      </div>
+      <span (click)="leaveChat(openedChat)"><i class="fas fa-sign-out-alt"></i></span>
     </div>
-    <div class="open-chat-messages">
+    <div class="open-chat-messages" #messages>
       <app-message *ngFor="let message of messagesToShow" [message]="message"></app-message>
     </div>
     <form (ngSubmit)="sendMessage(messageForm)" #messageForm="ngForm" class="open-chat-input">
       <input
+        #messageInput
         type="text"
         placeholder="Write here your message..."
         name="message"

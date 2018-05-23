@@ -27,4 +27,9 @@ export class ChatService {
   }
 
 
+  update(_id: string, chat: { members: string[], name?: string }): Observable<Chat> {
+    chat.members = chat.members.filter(cht => cht ? true : false);
+    chat.name = chat.name.split(',').filter(str => str ? true : false).join(',');
+    return this.http.put<Chat>(`${this.globalConfig.apiURL}/api/chats/${_id}`, chat);
+  }
 }

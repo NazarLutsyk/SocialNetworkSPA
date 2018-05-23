@@ -20,19 +20,45 @@
 }
 
 .open-chat-header {
+  display: flex;
   padding: 15px;
   font-weight: bold;
+  justify-content: space-between;
 }
+
+.fa-sign-out-alt {
+  cursor: pointer;
+  font-size: 20px;
+  color: #540000;
+  margin-right: 10px;
+}
+
+.fa-user-plus{
+  cursor: pointer;
+  font-size: 20px;
+  color: #18ad55;
+  margin-left: 10px;
+}
+
+
 .open-chat-input * {
   width: 100%;
   border: none;
   border-top: 1px solid #e6ecf5;
   padding: 10px;
 }
-.open-chat-messages{
+
+.open-chat-messages {
   overflow-y: scroll;
   height: 85vh;
 }
-app-room{
+
+app-room {
   cursor: pointer;
+}
+
+.user-id-input {
+  border-radius: 10px;
+  border: 1px solid #9a9fbf;
+  padding: 0px 10px;
 }

@@ -10,16 +10,21 @@ import {GalleryComponent} from './core/profile/gallery/gallery.component';
 import {FriendsComponent} from './core/profile/friends/friends.component';
 import {AboutComponent} from './core/profile/about/about.component';
 import {ChatsComponent} from './core/profile/chats/chats.component';
+import {AuthPageGuardService} from './service/auth-page-guard.service';
+import {ProfilePageGuardService} from './service/profile-page-guard.service';
 
 const routes: Routes = [
   {
-    path: 'auth', component: AuthComponent, children: [
+    path: 'auth', component: AuthComponent, canActivate: [AuthPageGuardService],
+    children: [
+      {path: '', redirectTo: 'signin', pathMatch: 'full'},
       {path: 'signin', component: SigninComponent},
       {path: 'signup', component: SignupComponent}
     ]
   },
   {
-    path: 'profile/:id', component: ProfileComponent, children: [
+    path: 'profile/:id', component: ProfileComponent, canActivate: [ProfilePageGuardService],
+    children: [
       {path: 'wall', component: WallComponent},
       {path: 'library', component: LibraryComponent},
       {path: 'gallery', component: GalleryComponent},
@@ -28,6 +33,7 @@ const routes: Routes = [
       {path: 'chats', component: ChatsComponent},
     ],
   },
+  {path: '**', redirectTo: 'auth'}
 ];
 
 @NgModule({

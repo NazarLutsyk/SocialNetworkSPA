@@ -18,6 +18,8 @@ import {PostService} from './service/post.service';
 import {SocketService} from './service/socket.service';
 import {ChatService} from './service/chat.service';
 import {MessageService} from './service/message.service';
+import {AuthPageGuardService} from './service/auth-page-guard.service';
+import {ProfilePageGuardService} from './service/profile-page-guard.service';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import {MessageService} from './service/message.service';
     PostService,
     SocketService,
     ChatService,
-    MessageService
+    MessageService,
+    AuthPageGuardService,
+    ProfilePageGuardService
   ],
   bootstrap: [AppComponent]
 })

@@ -5,6 +5,7 @@ import * as socketIo from 'socket.io-client';
 import {ConfigService} from './config.service';
 import {Message} from '../models/Message';
 import {Chat} from '../models/Chat';
+import {User} from '../models/User';
 
 @Injectable()
 export class SocketService {
@@ -42,5 +43,9 @@ export class SocketService {
 
   disconnectFromRoom(openedChat: Chat) {
     this.socket.emit('disconnectFromRoom', openedChat);
+  }
+
+  leaveRoom(openedChat: Chat, principal: User) {
+    this.socket.emit('leaveRoom', {chat: openedChat, user: principal});
   }
 }

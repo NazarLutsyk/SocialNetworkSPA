@@ -1,4 +1,5 @@
 <div class="profile-about-wrapper profile-tile">
+  <app-info [canUpdate]='false' [key]="'ID'" [value]="current._id"></app-info>
   <app-info [canUpdate]='current.isPrincipal' (changeValue)="updateUser($event)" [key]="'Name'" [value]="current.name"></app-info>
   <app-info [canUpdate]='current.isPrincipal' (changeValue)="updateUser($event)" [key]="'Surname'" [value]="current.surname"></app-info>
   <app-info [canUpdate]='current.isPrincipal' (changeValue)="updateUser($event)" [key]="'Birthday'" [value]="current.birthday | date"></app-info>
