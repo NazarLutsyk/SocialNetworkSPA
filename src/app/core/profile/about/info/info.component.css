@@ -2,8 +2,9 @@
   margin: 10px;
   min-height: 50px;
 }
-.info-text{
+.info-text {
   margin-left: 15px;
+  overflow: hidden
 }
 .edit-btn{
   padding: 0 5px;

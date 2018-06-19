@@ -3,7 +3,6 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {Book} from '../models/Book';
 import {ConfigService} from './config.service';
-import {Subject} from 'rxjs/Subject';
 
 declare let window;
 

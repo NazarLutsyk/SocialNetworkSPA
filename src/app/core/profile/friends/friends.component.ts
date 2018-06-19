@@ -39,9 +39,10 @@ export class FriendsComponent implements OnInit {
   createChat(receiver) {
     this.auth.getPrincipal().subscribe((principal) => {
       this.chatService.superfind({
-        members: {$in: [receiver._id, principal._id]},
+        members: [receiver._id, principal._id],
         $where: 'this.members.length==2'
       }).subscribe((chats) => {
+        console.log(chats);
         if (chats.length === 0) {
           this.chatService.create({
             name: `${receiver.surname}, ${principal.surname}`,

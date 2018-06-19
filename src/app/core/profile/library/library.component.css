@@ -14,7 +14,7 @@
 }
 .image-form-wrapper p{
   font-size: 35px;
-  color: #18ad55;
+  color: #303186;
   padding: 0 0;
   margin: 0 0;
 }
@@ -23,6 +23,7 @@ form {
   width: 100%;
   padding: 15px;
   justify-content: center;
+  align-items: center;
 }
 form input {
   width: 30%;

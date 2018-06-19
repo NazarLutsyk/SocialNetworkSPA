@@ -1,9 +1,7 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Chat} from '../../../../models/Chat';
 import {MessageService} from '../../../../service/message.service';
-import {AuthService} from '../../../../service/auth.service';
 import {UserService} from '../../../../service/user.service';
-import {Message} from '../../../../models/Message';
 
 @Component({
   selector: 'app-room',

@@ -4,6 +4,7 @@ import {ConfigService} from '../../../service/config.service';
 import {ObjectUtil} from '../../../utils/ObjectUtil';
 import {UserService} from '../../../service/user.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {AuthService} from '../../../service/auth.service';
 
 @Component({
   selector: 'app-profile-header',
@@ -13,24 +14,30 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class ProfileHeaderComponent implements OnInit {
 
   current: User = new User();
+  isPrincipalPage = false;
 
   constructor(
     private globalConfig: ConfigService,
     private userService: UserService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private auth: AuthService
   ) {
   }
 
   ngOnInit() {
-    this.userService.updateUser.subscribe((user) => {
-      this.current = user;
-    });
 
-    this.route.params.subscribe((params) => {
-      const id: string = params.id;
-      this.userService.find(id).subscribe((user) => {
-        ObjectUtil.copy(this.current, user);
+    this.auth.getPrincipal().subscribe((principal) => {
+      this.userService.updateUser.subscribe((user) => {
+        this.current = user;
+        this.isPrincipalPage = principal._id === this.current._id;
+      });
+      this.route.params.subscribe((params) => {
+        const id: string = params.id;
+        this.userService.find(id).subscribe((user) => {
+          ObjectUtil.copy(this.current, user);
+          this.isPrincipalPage = principal._id === this.current._id;
+        });
       });
     });
   }

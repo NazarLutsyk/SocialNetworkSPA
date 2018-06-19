@@ -25,8 +25,9 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    this.auth.logout().subscribe();
-    this.router.navigate(['auth', 'signin']);
+    this.auth.logout().subscribe(() => {
+      this.router.navigate(['auth', 'signin']);
+    });
   }
 
   findFriends(form: NgForm) {

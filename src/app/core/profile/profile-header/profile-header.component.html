@@ -7,11 +7,13 @@
       <li (click)="toAboutPage()">About</li>
     </ul>
     <div class="profile-header-info-menu">
-      <div class="profile-header-avatar" [ngStyle]="{backgroundImage : 'url('+current?.avatar+')'}"></div>
+      <div class="profile-header-avatar-wrapper">
+        <div class="profile-header-avatar" [ngStyle]="{backgroundImage : 'url('+current?.avatar+')'}"></div>
+      </div>
       <h4>{{current?.name}} {{current?.surname}}</h4>
     </div>
     <ul class="profile-header-menu-list">
-      <li (click)="toChatsPage()">Chats</li>
+      <li *ngIf="isPrincipalPage" (click)="toChatsPage()">Chats</li>
       <li (click)="toGalleryPage()">Gallery</li>
       <li (click)="toLibraryPage()">Library</li>
     </ul>

@@ -1,10 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {User} from '../../../../models/User';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../../../service/auth.service';
 import {NgForm} from '@angular/forms';
 import {UserService} from '../../../../service/user.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {ObjectUtil} from '../../../../utils/ObjectUtil';
 
 @Component({
   selector: 'app-search-friend',
